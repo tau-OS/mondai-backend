@@ -1,9 +1,10 @@
 import { config } from "https://deno.land/std@0.167.0/dotenv/mod.ts";
+import { serve } from "https://deno.land/std@0.167.0/http/mod.ts";
 import { issueSchema, productNames } from "./types.ts";
 
 const env = await config({ safe: true });
 
-Deno.serve(async (req) => {
+serve(async (req) => {
   if (req.method !== "POST") {
     return new Response(null, { status: 405 });
   }
