@@ -1,7 +1,7 @@
-import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
+import { config } from "https://deno.land/std@0.167.0/dotenv/mod.ts";
 import { issueSchema, productNames } from "./types.ts";
 
-const env = config({ safe: true });
+const env = await config({ safe: true });
 
 Deno.serve(async (req) => {
   if (req.method !== "POST") {
